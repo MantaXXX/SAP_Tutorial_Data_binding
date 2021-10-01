@@ -15,6 +15,12 @@ sap.ui.require(
         lastName: "Hawk",
         enabled: true,
         panelHeaderText: "Data Binding Basics",
+        address: {
+          street: "Dietmar-Hopp-Allee 16",
+          city: "Walldorf",
+          zip: "69190",
+          country: "Germany",
+        },
       });
 
       // Create a resource bundle for language specific texts
