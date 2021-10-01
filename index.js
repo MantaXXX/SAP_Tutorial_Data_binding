@@ -18,7 +18,7 @@ sap.ui.require(
       });
 
       // Create a resource bundle for language specific texts
-      // "supportedLocales" represent the i18n files present: "" -> i18n/i18n.properties
+      // "supportedLocales" represent the i18n files present: "" -> i18n/i18n.properties, "de" -> i18n/i18n_de.properties
       // "fallbackLocale" : represent one of these files: "" -> according to the fallback chain the root bundle is the last fallback.
       var oResourceModel = new ResourceModel({
         bundleName: "binding.demo.i18n.i18n",
