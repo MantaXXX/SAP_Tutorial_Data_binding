@@ -2,9 +2,9 @@ sap.ui.require(
   [
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/XMLView",
-    "sap/ui/model/BindingMode",
+    "sap/ui/model/resource/ResourceModel",
   ],
-  function (JSONModel, XMLView, BindingMode) {
+  function (JSONModel, XMLView, ResourceModel) {
     "use strict";
 
     // Attach an anonymous function to the SAPUI5 'init' event
@@ -17,9 +17,17 @@ sap.ui.require(
         panelHeaderText: "Data Binding Basics",
       });
 
-      // binding mode is set on the model itself, alter it with BindingMode dependency
-      oModel.setDefaultBindingMode(BindingMode.OneWay);
+      // Create a resource bundle for language specific texts
+      // "supportedLocales" represent the i18n files present: "" -> i18n/i18n.properties
+      // "fallbackLocale" : represent one of these files: "" -> according to the fallback chain the root bundle is the last fallback.
+      var oResourceModel = new ResourceModel({
+        bundleName: "binding.demo.i18n.i18n",
+        supportedLocales: ["", "de"],
+        fallbackLocale: "",
+      });
 
+      // Assign the model object to the SAPUI5 core using the name "i18n"
+      sap.ui.getCore().setModel(oResourceModel, "i18n");
       // Assign this local model object to the entire SAPUI5 core, leading to all controls within the app can access it
       sap.ui.getCore().setModel(oModel);
 
