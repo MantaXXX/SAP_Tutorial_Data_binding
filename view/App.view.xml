@@ -1,4 +1,4 @@
-<mvc:View
+<mvc:View controllerName="binding.demo.controller.App"
 	xmlns="sap.m"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:l="sap.ui.layout"
@@ -17,10 +17,15 @@
 		<content>
 			<l:VerticalLayout>
 				<Label labelFor="address" text="{i18n>address}:"/>
-				<FormattedText class="sapUiSmallMarginBottom"
-					htmlText="{/address/street}&lt;br>{/address/zip} {/address/city}&lt;br>{/address/country}"
-					id="address" 
-					width="200px"/>
+				<FormattedText class="sapUiSmallMarginBottom" htmlText="{/address/street}&lt;br>{/address/zip} {/address/city}&lt;br>{/address/country}" id="address" width="200px"/>
+				<!-- href contains an entire object inside the string value for complex binding  -->
+				<Link href="{
+						parts: [
+							'/firstName',
+							'/lastName'
+						],
+						formatter: '.formatMail'
+					}" text="{i18n>sendEmail}"/>
 			</l:VerticalLayout>
 		</content>
 	</Panel>
