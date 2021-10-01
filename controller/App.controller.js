@@ -6,7 +6,14 @@ sap.ui.define(
     "sap/ui/core/LocaleData",
     "sap/ui/model/type/Currency",
   ],
-  function (Controller, mobileLibrary, Locale, LocaleData, Currency) {
+  function (
+    Controller,
+    mobileLibrary,
+    Locale,
+    LocaleData,
+    Currency,
+    JSONModel
+  ) {
     "use strict";
 
     return Controller.extend("binding.demo.controller.App", {
@@ -28,6 +35,15 @@ sap.ui.define(
           [fUnitPrice * iStockLevel, sCurrCode],
           "string"
         );
+      },
+      // element binding
+      onItemSelected: function (oEvent) {
+        var oSelectedItem = oEvent.getSource();
+        var oContext = oSelectedItem.getBindingContext("products");
+        var sPath = oContext.getPath();
+        var oProductDetailPanel = this.byId("productDetailsPanel");
+        console.log(oProductDetailPanel);
+        oProductDetailPanel.bindElement({ path: sPath, model: "products" });
       },
     });
   }
