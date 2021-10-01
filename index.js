@@ -21,6 +21,8 @@ sap.ui.require(
           zip: "69190",
           country: "Germany",
         },
+        salesAmount: 12345.6789,
+        currencyCode: "EUR",
       });
 
       // Create a resource bundle for language specific texts
