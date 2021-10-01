@@ -6,7 +6,7 @@
 	<Panel headerText="{i18n>panel1HeaderText}" class="sapUiResponsiveMargin" width="auto">
 		<form:SimpleForm editable="true" layout="ColumnLayout">
 			<Label text="{i18n>firstName}"/>
-			<Input value="{/firstName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}"/>
+			<Input value="{/firstName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}" />
 			<Label text="{i18n>lastName}"/>
 			<Input value="{/lastName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}"/>
 			<Label text="{i18n>enabled}"/>

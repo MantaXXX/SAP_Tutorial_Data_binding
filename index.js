@@ -40,9 +40,16 @@ sap.ui.require(
       sap.ui.getCore().setModel(oModel);
 
       // Display the XML view called "App"
-      new XMLView({
+      var oView = new XMLView({
         viewName: "binding.demo.view.App",
-      }).placeAt("content");
+      });
+
+      // Register the view with the MessageManager which will display validation error message by checking its list of registered object
+      // validation function belonging to the sap.ui.model.type.Currency data type.
+      sap.ui.getCore().getMessageManager().registerObject(oView, true);
+
+      // Insert the view into the DOM
+      oView.placeAt("content");
     });
   }
 );
