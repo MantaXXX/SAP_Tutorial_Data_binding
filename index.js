@@ -1,6 +1,10 @@
 sap.ui.require(
-  ["sap/ui/model/json/JSONModel", "sap/ui/core/mvc/XMLView"],
-  function (JSONModel, XMLView) {
+  [
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/core/mvc/XMLView",
+    "sap/ui/model/BindingMode",
+  ],
+  function (JSONModel, XMLView, BindingMode) {
     "use strict";
 
     // Attach an anonymous function to the SAPUI5 'init' event
@@ -12,6 +16,9 @@ sap.ui.require(
         enabled: true,
         panelHeaderText: "Data Binding Basics",
       });
+
+      // binding mode is set on the model itself, alter it with BindingMode dependency
+      oModel.setDefaultBindingMode(BindingMode.OneWay);
 
       // Assign this local model object to the entire SAPUI5 core, leading to all controls within the app can access it
       sap.ui.getCore().setModel(oModel);
